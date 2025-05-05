@@ -41,6 +41,7 @@ android {
 }
 
 dependencies {
+    implementation("com.airbnb.android:lottie-compose:6.6.6")  //for adding animated lottie icon
     implementation("com.github.KwabenBerko:News-API-Java:1.0.2")
     implementation("androidx.compose.runtime:runtime-livedata:1.0.0-beta01") //for observeAsState
     implementation("io.coil-kt.coil3:coil-compose:3.1.0")
