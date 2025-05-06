@@ -20,6 +20,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
@@ -37,7 +38,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -54,6 +57,7 @@ class MainActivity : ComponentActivity() {
         val newsViewModel = NewsViewModel()
         setContent {
             val navController = rememberNavController()
+         //   val isDarkTheme = isSystemInDarkTheme()  // to check whether system is in dark theme or light?
             MyNewsTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Column(modifier = Modifier.padding(innerPadding).fillMaxSize()){
@@ -107,6 +111,8 @@ fun CustomTopAppBar() {
                 progress = { progress },
                 modifier = Modifier
                     .size(36.dp)
+                    .clip(RoundedCornerShape(12.dp)),
+                contentScale = ContentScale.Crop    // make the logo of topbar circular
             )
 
             Spacer(modifier = Modifier.width(8.dp))
